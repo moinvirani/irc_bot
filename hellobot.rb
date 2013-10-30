@@ -2,10 +2,11 @@ require "socket"
 
 server = "chat.freenode.net"
 port = "6667"
-nick = "HelloBot"
+nick = "TheTerminator"
 channel = "#bitmaker"
 greeting_prefix = "privmsg #{channel} :"
-greetings = ["hello", "hi", "hola", "yo", "wazup", "guten tag", "howdy", "salutations", "who the hell are you?"]
+greetings = ["hello", "hi", "hola", "yo", "wazup", "whatsup" "guten tag", "howdy", "salutations", "who the hell are you?"]
+leaving = ["has left"]
 
 irc_server = TCPSocket.open(server, port)
 
@@ -25,7 +26,16 @@ until irc_server.eof? do
   end
 
   if msg.include?(greeting_prefix) and was_greeted
-          response = "w00t! Someone talked to us!!!! Hello!!!"
+          response = "It's Show Time!"
           irc_server.puts "PRIVMSG #{channel} :#{response}"
   end
+
+# When someone logs out
+  
+
+
+
+
+# alright everyone chill
+
 end
